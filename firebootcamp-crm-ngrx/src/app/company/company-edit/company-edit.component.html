@@ -1,0 +1,29 @@
+<h1>
+  {{isNewCompany ? 'Add' : 'Edit'}} Company
+</h1>
+<div class="well">
+  <form (ngSubmit)="saveCompany()" #companyForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="company.name" required>
+    </div>
+    <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
+      Required
+    </div>
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="company.email" required>
+    </div>
+    <div class="alert alert-danger" [hidden]="email.valid || email.pristine">
+      Required
+    </div>
+    <div class="form-group">
+      <label for="name">Phone</label>
+      <input type="text" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="company.phone" required>
+    </div>
+    <div class="alert alert-danger" [hidden]="phone.valid || phone.pristine">
+      Required
+    </div>
+    <button class="btn btn-default" type="submit" [disabled]="companyForm.invalid">Submit</button>
+  </form>
+</div>
